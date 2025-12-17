@@ -1,0 +1,8 @@
+{
+  "name": "360 Consulting Solutions",
+  "description": "A high-energy, modern Business & Life Coaching platform with fluid animations and glassmorphism design.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
