@@ -23,9 +23,8 @@ const Navbar: React.FC<NavbarProps> = ({ onConsultClick }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-8 py-6 flex items-center justify-between ${
-        scrolled ? 'glass py-4' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-8 py-6 flex items-center justify-between ${scrolled ? 'glass py-4' : 'bg-transparent'
+        }`}
     >
       <div className="flex items-center gap-3 group cursor-pointer">
         <div className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center font-black text-lg transition-transform group-hover:scale-110">
@@ -33,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ onConsultClick }) => {
         </div>
         <div className="flex flex-col">
           <span className="text-sm font-black tracking-tighter leading-none font-heading uppercase">JOHN LICATA</span>
-          <span className="text-[9px] tracking-[0.3em] text-orange-500 font-bold uppercase">Consulting</span>
+          <span className="text-[9px] tracking-[0.3em] text-orange-500 font-bold uppercase">Consulting Solutions</span>
         </div>
       </div>
 
@@ -51,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({ onConsultClick }) => {
       </div>
 
       <div className="flex items-center">
-        <CTAButton onClick={onConsultClick} className="py-3 px-6 md:px-8">
+        <CTAButton onClick={onConsultClick} className="py-2.5 px-5 md:px-6 text-[9px]">
           book strategy session
         </CTAButton>
       </div>

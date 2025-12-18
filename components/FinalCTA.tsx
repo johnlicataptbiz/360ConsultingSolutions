@@ -23,7 +23,7 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onConsultClick }) => {
         >
           Your Next Chapter Starts Here
         </motion.span>
-        
+
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onConsultClick }) => {
         >
           Ready to shorten <br />
           <span className="text-gradient">the trajectory?</span>
-        </h2 >
+        </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
