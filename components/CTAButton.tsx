@@ -8,14 +8,16 @@ interface CTAButtonProps {
   children: React.ReactNode;
   className?: string;
   strength?: number;
+  ariaLabel?: string;
 }
 
-const CTAButton: React.FC<CTAButtonProps> = ({ onClick, children, className = "", strength = 0.4 }) => {
+const CTAButton: React.FC<CTAButtonProps> = ({ onClick, children, className = "", strength = 0.4, ariaLabel }) => {
   return (
     <Magnetic strength={strength}>
       <motion.button
         onClick={onClick}
-        className={`group relative px-8 py-4 bg-white text-black font-black uppercase tracking-[0.2em] text-[10px] md:text-xs rounded-full overflow-hidden transition-all active:scale-95 shimmer pulse-glow ${className}`}
+        aria-label={ariaLabel || (typeof children === 'string' ? children : 'Action Button')}
+        className={`group relative px-8 py-4 bg-white text-black font-black uppercase tracking-[0.2em] text-[10px] md:text-xs rounded-full overflow-hidden transition-all active:scale-95 polish-shine ${className}`}
       >
         <span className="relative z-10 group-hover:text-white transition-colors duration-300">
           {children}

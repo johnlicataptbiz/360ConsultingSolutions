@@ -10,7 +10,11 @@ interface BlogHubProps {
 
 const BlogHub: React.FC<BlogHubProps> = ({ onConsultClick }) => {
   return (
-    <section id="blog" className="py-40 px-6 bg-gray-950">
+    <section id="blog" className="py-40 px-6 bg-gray-950 relative overflow-hidden">
+      {/* Feathering Gradients */}
+      <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-gray-950 to-transparent z-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-gray-950 to-transparent z-10 pointer-events-none" />
+
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
           <div className="max-w-2xl">
@@ -45,10 +49,10 @@ const BlogHub: React.FC<BlogHubProps> = ({ onConsultClick }) => {
               className="group cursor-pointer flex flex-col h-full"
             >
               <div className="relative overflow-hidden rounded-[2.5rem] mb-8 aspect-[16/10] bg-gray-900">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute top-8 left-8">
                   <span className="px-4 py-1.5 rounded-full glass text-[9px] font-black uppercase tracking-widest text-white backdrop-blur-md">
@@ -56,7 +60,7 @@ const BlogHub: React.FC<BlogHubProps> = ({ onConsultClick }) => {
                   </span>
                 </div>
               </div>
-              
+
               <div className="flex flex-col flex-1 px-2">
                 <span className="text-orange-500 text-[10px] font-black tracking-widest uppercase mb-4">
                   {post.date}

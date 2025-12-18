@@ -1,0 +1,101 @@
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { BookOpen, FileText, ArrowRight, Sparkles } from 'lucide-react';
+
+interface ResourcesSectionProps {
+    onConsultClick: () => void;
+}
+
+const ResourcesSection: React.FC<ResourcesSectionProps> = ({ onConsultClick }) => {
+    const guides = [
+        {
+            title: "The Scale Blueprint",
+            type: "E-Guide",
+            description: "A comprehensive roadmap for founders moving from founder-led to system-driven growth.",
+            icon: <BookOpen className="text-orange-500" size={24} />
+        },
+        {
+            title: "Operational Audit Checklist",
+            type: "Checklist",
+            description: "Identify hidden bottlenecks in your current workflows with this 50-point framework.",
+            icon: <FileText className="text-orange-500" size={24} />
+        }
+    ];
+
+    return (
+        <section id="resources" className="py-40 px-6 bg-gray-950 overflow-hidden relative">
+            {/* Feathering Gradients */}
+            <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-gray-950 to-transparent z-10 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-gray-950 to-transparent z-10 pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto">
+                <div className="flex flex-col lg:flex-row gap-24 items-end mb-24">
+                    <div className="lg:w-2/3">
+                        <motion.span
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            className="text-orange-500 text-[10px] font-black tracking-[0.5em] uppercase mb-6 block"
+                        >
+                            Legacy Tools
+                        </motion.span>
+                        <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase font-heading leading-tight">
+                            Founder <br /> <span className="text-white/30">Resources.</span>
+                        </h2>
+                        <p className="mt-8 text-xl text-gray-400 font-light leading-relaxed max-w-xl">
+                            Strategic Frameworks for high-stakes growth. Unlock the exact systems used to scale 16 brands from zero to market leaders.
+                        </p>
+                    </div>
+                    <div className="lg:w-1/3">
+                        <motion.div
+                            whileHover={{ scale: 1.02 }}
+                            className="p-10 rounded-[3rem] bg-gradient-to-br from-orange-500/20 to-orange-600/5 border border-orange-500/30 backdrop-blur-xl relative group overflow-hidden cursor-pointer"
+                            onClick={onConsultClick}
+                        >
+                            <div className="absolute top-0 right-0 p-6 opacity-20">
+                                <Sparkles size={40} className="text-orange-500" />
+                            </div>
+                            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-orange-500 mb-6">Coming Q1 2026</p>
+                            <h3 className="text-3xl font-black uppercase font-heading tracking-tighter mb-4">The '360' <br /> Master Series</h3>
+                            <p className="text-gray-400 font-light text-sm mb-0">Join the waitlist for exclusive access to my upcoming e-book series on holistic business health.</p>
+                        </motion.div>
+                    </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                    {guides.map((guide, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: idx * 0.1 }}
+                            viewport={{ once: true }}
+                            className="group p-12 bg-white/[0.02] border border-white/10 rounded-[3rem] hover:border-orange-500/50 transition-all duration-500 relative cursor-pointer polish-shine"
+                            onClick={onConsultClick}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => e.key === 'Enter' && onConsultClick()}
+                            aria-label={`Learn more about the ${guide.title} resource`}
+                        >
+                            <div className="flex justify-between items-start mb-10">
+                                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white transition-all duration-500">
+                                    {guide.icon}
+                                </div>
+                                <span className="px-5 py-2 rounded-full border border-white/10 text-[9px] font-black uppercase tracking-[0.2em] bg-black/50 text-gray-400">
+                                    {guide.type}
+                                </span>
+                            </div>
+                            <h3 className="text-4xl font-black tracking-tighter uppercase font-heading mb-4 group-hover:text-orange-500 transition-colors">{guide.title}</h3>
+                            <p className="text-gray-300 text-lg mb-10 leading-relaxed font-light group-hover:text-white transition-colors">{guide.description}</p>
+                            <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-orange-500 group-hover:text-white transition-colors">
+                                Coming Soon <ArrowRight size={18} />
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default ResourcesSection;

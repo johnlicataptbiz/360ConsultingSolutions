@@ -1,11 +1,13 @@
 
 import React from 'react';
 import { NavItem, ServiceItem, PartnerLogo, BlogPost, Step } from './types';
+import { BarChart3, Briefcase, Compass, Calendar, Search, Zap } from 'lucide-react';
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'What We Do', href: '#what-we-do' },
   { label: 'Partnerships', href: '#partnerships' },
   { label: 'About 360', href: '#about' },
+  { label: 'Resources', href: '#resources' },
   { label: 'Blog', href: '#blog' }
 ];
 
@@ -15,7 +17,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'Business Coaching',
     description: 'Strategic planning and operational optimization for sustainable growth.',
     details: ['Operational Systems', 'Revenue Growth Strategies', 'Leadership Alignment'],
-    icon: '📊',
+    icon: <BarChart3 size={32} />,
     color: 'from-blue-500/20 to-blue-600/20'
   },
   {
@@ -23,7 +25,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'Career Coaching',
     description: 'Level up your professional journey with actionable pathfinding.',
     details: ['Executive Presence', 'Career Trajectory Analysis', 'Hiring Skills'],
-    icon: '🚀',
+    icon: <Briefcase size={32} />,
     color: 'from-orange-500/20 to-orange-600/20'
   },
   {
@@ -31,7 +33,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'Life Coaching',
     description: 'Personal development focused on balance, purpose, and legacy.',
     details: ['Work-Life Integration', 'Personal Fulfillment', 'Decision Making'],
-    icon: '🌱',
+    icon: <Compass size={32} />,
     color: 'from-teal-500/20 to-teal-600/20'
   }
 ];
@@ -41,42 +43,58 @@ export const STEPS: Step[] = [
     number: 1,
     title: 'Consult',
     description: 'Schedule your complimentary 30 minute consult.',
-    icon: '📅'
+    icon: <Calendar size={24} />
   },
   {
     number: 2,
     title: 'Assess',
     description: 'We identify core bottlenecks and performance gaps.',
-    icon: '🔍'
+    icon: <Search size={24} />
   },
   {
     number: 3,
     title: 'Execute',
     description: 'A custom action plan is formulated and deployed.',
-    icon: '⚡'
+    icon: <Zap size={24} />
   }
 ];
 
 export const PARTNERS: PartnerLogo[] = [
-  { 
-    name: 'PT Biz', 
-    url: 'https://images.squarespace-cdn.com/content/v1/5980a3003e00be9895023907/1501610444651-O6M2I1J3I0Y6Z6Z6Z6Z6/PT+Biz+Logo.png' 
+  {
+    name: 'PT Biz',
+    url: '/images/logo-ptbiz-color.jpg'
   },
-  { 
-    name: 'Holo', 
-    url: 'https://holofootwear.com/cdn/shop/files/HOLO_LOGO_BLACK_Small_340x.png?v=1646244436' 
+  {
+    name: 'Holo Footwear',
+    url: '/images/logo-holo-new.png'
   },
-  { 
-    name: 'Sneaker Impact', 
-    url: 'https://sneakerimpact.com/wp-content/uploads/2021/04/logo.png' 
+  {
+    name: 'Sneaker Impact',
+    url: '/images/logo-sneaker-impact-new.png'
   },
-  { 
-    name: 'Nike', 
-    url: 'https://logo.clearbit.com/nike.com' 
+  {
+    name: 'Walmart',
+    url: '/images/logo-walmart-new.png'
   },
-  { 
-    name: 'Shopify', 
-    url: 'https://logo.clearbit.com/shopify.com' 
+  {
+    name: 'Target',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Target_logo.svg'
+  },
+  {
+    name: 'NBA',
+    url: '/images/logo-nba-color.png'
+  },
+  {
+    name: 'WNBA',
+    url: '/images/logo-wnba-color.png'
+  },
+  {
+    name: 'Nordstrom',
+    url: '/images/logo-nordstrom.png'
+  },
+  {
+    name: 'Finish Line',
+    url: '/images/logo-finishline-new.png'
   }
 ];
 

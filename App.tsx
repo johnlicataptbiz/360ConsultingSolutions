@@ -8,13 +8,17 @@ import ProcessSection from './components/ProcessSection';
 import BentoServices from './components/BentoServices';
 import MarqueePartners from './components/MarqueePartners';
 import About360 from './components/About360';
+import ResourcesSection from './components/ResourcesSection';
 import BlogHub from './components/BlogHub';
 import Footer from './components/Footer';
 import ConsultModal from './components/ConsultModal';
 import FinalCTA from './components/FinalCTA';
 
+import { ServiceItem } from './types';
+
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -22,29 +26,44 @@ const App: React.FC = () => {
     restDelta: 0.001
   });
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const openModal = () => {
+    setSelectedService(null);
+    setIsModalOpen(true);
+  };
+
+  const openServiceModal = (service: ServiceItem) => {
+    setSelectedService(service);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedService(null);
+  };
 
   return (
     <div className="relative min-h-screen bg-gray-950 text-white selection:bg-orange-500 selection:text-white">
       <motion.div className="progress-bar" style={{ scaleX }} />
       <Navbar onConsultClick={openModal} />
-      
+
       <main>
-        <Hero onConsultClick={openModal} />
-        <ValueProp />
-        <ProcessSection onConsultClick={openModal} />
-        <BentoServices onConsultClick={openModal} />
-        <MarqueePartners />
-        <About360 onConsultClick={openModal} />
-        <BlogHub onConsultClick={openModal} />
-        <FinalCTA onConsultClick={openModal} />
+        <div className="relative z-10 flex flex-col gap-0">
+          <Hero onConsultClick={openModal} />
+          <ValueProp />
+          <MarqueePartners />
+          <BentoServices onConsultClick={openServiceModal} />
+          <ResourcesSection onConsultClick={openModal} />
+          <ProcessSection onConsultClick={openModal} />
+          <About360 onConsultClick={openModal} />
+          <FinalCTA onConsultClick={openModal} />
+          <BlogHub onConsultClick={openModal} />
+        </div>
       </main>
 
       <Footer />
 
       <AnimatePresence>
-        {isModalOpen && <ConsultModal onClose={closeModal} />}
+        {isModalOpen && <ConsultModal onClose={closeModal} selectedService={selectedService} />}
       </AnimatePresence>
     </div>
   );

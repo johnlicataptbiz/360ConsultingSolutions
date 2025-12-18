@@ -82,25 +82,27 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
   };
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-gray-950">
+    <section role="main" className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-gray-950">
       {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/20 via-gray-950/60 to-gray-950 z-10" />
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/40 via-gray-950/70 to-gray-950 z-10" />
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover grayscale opacity-30 brightness-50 scale-105"
+          className="w-full h-full object-cover grayscale opacity-25 brightness-[0.4] scale-110"
         >
           <source src="https://assets.mixkit.co/videos/preview/mixkit-business-partners-working-together-in-office-43394-large.mp4" type="video/mp4" />
         </video>
+        {/* Animated Glow Overlay */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[100vh] bg-orange-500/5 blur-[120px] rounded-full animate-float opacity-50 z-0" />
       </div>
 
-      <div className="relative z-20 w-full px-6 max-w-[1400px] mx-auto pt-32 lg:pt-40">
+      <div className="relative z-20 w-full px-6 max-w-[1400px] mx-auto pt-20 lg:pt-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column: Text Content */}
-          <motion.div style={{ y: yOffset, opacity }} className="text-left">
+          <motion.div style={{ y: yOffset, opacity }} className="text-left animate-float">
             <motion.span
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -114,19 +116,19 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
               variants={taglineVariants}
               initial="hidden"
               animate="visible"
-              className="text-[10vw] md:text-[8vw] lg:text-[7vw] font-black leading-[0.85] tracking-tighter uppercase font-heading flex flex-col gap-2 mb-12"
+              className="text-[9vw] md:text-[7vw] lg:text-[6.5vw] font-black leading-none tracking-tighter uppercase font-heading flex flex-col gap-4 mb-12"
             >
-              <div className="overflow-hidden">
+              <div className="overflow-hidden whitespace-nowrap">
                 {splitCharacters("COACHING")}
               </div>
-              <div className="overflow-hidden flex items-center gap-2 md:gap-4">
-                <span className="text-white/10 outline-text">{splitCharacters("FOR")}</span>
+              <div className="overflow-hidden flex items-center gap-4 whitespace-nowrap">
+                <span className="text-white">{splitCharacters("FOR")}</span>
                 <motion.span
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 1, duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
                   style={{ transformOrigin: 'left' }}
-                  className="bg-orange-500 text-white px-4 md:px-8 py-1 md:py-2 inline-block shadow-[0_0_40px_rgba(249,115,22,0.3)]"
+                  className="bg-orange-500 text-white px-6 py-2 inline-block shadow-[0_0_60px_rgba(249,115,22,0.4)] polish-shine"
                 >
                   <span className="block">{splitCharacters("LIFE.")}</span>
                 </motion.span>
@@ -140,7 +142,7 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
                 animate="visible"
                 className="max-w-xl"
               >
-                <p className="text-lg md:text-2xl text-gray-400 font-light leading-snug italic border-l border-white/10 pl-8 flex flex-wrap">
+                <p className="text-lg md:text-2xl text-gray-300 font-light leading-snug italic border-l border-white/10 pl-8 flex flex-wrap">
                   {splitWords("Your strategic partner in personal development.")}
                 </p>
               </motion.div>
@@ -151,11 +153,15 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
                 transition={{ delay: 2.2, duration: 0.8 }}
                 className="flex flex-wrap items-center gap-8 md:gap-12"
               >
-                <CTAButton onClick={onConsultClick} className="px-10 py-6">
+                <CTAButton onClick={onConsultClick} className="px-10 py-6" ariaLabel="Book Strategy Session">
                   book strategy session
                 </CTAButton>
 
-                <a href="#process" className="text-xs font-black uppercase tracking-[0.4em] text-gray-400 hover:text-white transition-colors flex items-center gap-3 group">
+                <a
+                  href="#process"
+                  aria-label="Read our business roadmap"
+                  className="text-xs font-black uppercase tracking-[0.4em] text-gray-400 hover:text-white transition-colors flex items-center gap-3 group"
+                >
                   View Roadmap <span className="text-orange-500 text-lg group-hover:translate-x-1 transition-transform">→</span>
                 </a>
               </motion.div>
@@ -169,11 +175,11 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
             transition={{ delay: 0.6, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="hidden lg:block relative"
           >
-            <div className="relative aspect-[4/5] w-full max-w-lg mx-auto overflow-hidden rounded-2xl border border-white/10 grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
+            <div className="relative aspect-[4/5] w-full max-w-md mx-auto overflow-hidden rounded-2xl border border-white/10 grayscale-[0.4] hover:grayscale-0 transition-all duration-700 shadow-2xl">
               <img
-                src="/john-licata.png"
+                src="/images/john-hero-new.jpg"
                 alt="John Licata"
-                className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-700"
+                className="w-full h-full object-cover scale-[1.05] hover:scale-100 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60" />
 
@@ -183,9 +189,9 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-6 -right-6 w-24 h-24 bg-orange-500/10 blur-3xl rounded-full"
               />
-              <div className="absolute bottom-8 left-8">
-                <span className="text-orange-500 font-black text-xs tracking-[0.4em] uppercase block mb-1">Founder</span>
-                <span className="text-white font-heading font-black text-3xl tracking-tighter uppercase">John Licata</span>
+              <div className="absolute bottom-10 left-10 text-left">
+                <p className="text-white font-heading font-black text-3xl tracking-tighter uppercase leading-none mb-2">John Licata</p>
+                <p className="text-orange-500 font-black text-[10px] tracking-[0.4em] uppercase block">Principal & Founder</p>
               </div>
             </div>
 

@@ -1,4 +1,16 @@
 
+export interface AnalysisResult {
+  strategy: string;
+  operations: string;
+  growth: string;
+  summary: string;
+}
+
+export enum SectionId {
+  Process = 'process',
+  Contact = 'contact'
+}
+
 export interface NavItem {
   label: string;
   href: string;
@@ -9,7 +21,7 @@ export interface ServiceItem {
   title: string;
   description: string;
   details: string[];
-  icon: string;
+  icon: React.ReactNode;
   color: string;
 }
 
@@ -31,5 +43,5 @@ export interface Step {
   number: number;
   title: string;
   description: string;
-  icon: string;
+  icon: React.ReactNode;
 }
