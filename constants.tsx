@@ -71,12 +71,12 @@ export const PARTNERS: PartnerLogo[] = [
     url: 'https://sneakerimpact.com/wp-content/uploads/2021/04/logo.png' 
   },
   { 
-    name: 'Brand Build', 
-    url: 'https://logo.clearbit.com/shopify.com' 
+    name: 'Nike', 
+    url: 'https://logo.clearbit.com/nike.com' 
   },
   { 
-    name: 'InnoCorp', 
-    url: 'https://logo.clearbit.com/nike.com' 
+    name: 'Shopify', 
+    url: 'https://logo.clearbit.com/shopify.com' 
   }
 ];
 
