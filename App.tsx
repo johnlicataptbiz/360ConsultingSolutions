@@ -11,7 +11,7 @@ import About360 from './components/About360';
 import ResourcesSection from './components/ResourcesSection';
 import BlogHub from './components/BlogHub';
 import Footer from './components/Footer';
-import ConsultModal from './components/ConsultModal';
+import CustomCalendar from './components/CustomCalendar';
 import FinalCTA from './components/FinalCTA';
 
 import { ServiceItem } from './types';
@@ -63,7 +63,7 @@ const App: React.FC = () => {
       <Footer />
 
       <AnimatePresence>
-        {isModalOpen && <ConsultModal onClose={closeModal} selectedService={selectedService} />}
+        {isModalOpen && <CustomCalendar onClose={closeModal} />}
       </AnimatePresence>
     </div>
   );
