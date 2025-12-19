@@ -28,13 +28,11 @@ const Navbar: React.FC<NavbarProps> = ({ onConsultClick }) => {
       }`}
     >
       <div className="flex items-center gap-3 group cursor-pointer">
-        <div className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center font-black text-lg transition-transform group-hover:scale-110">
-          360
-        </div>
-        <div className="flex flex-col">
-          <span className="text-sm font-black tracking-tighter leading-none font-heading uppercase">JOHN LICATA</span>
-          <span className="text-[9px] tracking-[0.3em] text-orange-500 font-bold uppercase">Consulting</span>
-        </div>
+        <img 
+          src="https://360-consulting-solutions-johnlicata.surge.sh/images/360-logo-new.png" 
+          alt="360 Consulting Solutions" 
+          className="h-16 w-auto object-contain transition-transform group-hover:scale-105 brightness-0 invert"
+        />
       </div>
 
       <div className="hidden xl:flex items-center gap-10">

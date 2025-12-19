@@ -86,15 +86,11 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-950/20 via-gray-950/60 to-gray-950 z-10" />
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="w-full h-full object-cover grayscale opacity-30 brightness-50 scale-105"
-        >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-business-partners-working-together-in-office-43394-large.mp4" type="video/mp4" />
-        </video>
+        <img 
+          src="https://360-consulting-solutions-johnlicata.surge.sh/images/john-hero-new.jpg" 
+          alt="John Licata" 
+          className="w-full h-full object-cover object-top opacity-60"
+        />
       </div>
 
       <div className="relative z-20 w-full px-6 max-w-[1400px] mx-auto text-center">
@@ -118,13 +114,13 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
               {splitCharacters("COACHING")}
             </div>
             <div className="overflow-hidden flex items-center gap-2 md:gap-4">
-              <span className="text-white/10 outline-text">{splitCharacters("FOR")}</span> 
+              <span className="text-white">{splitCharacters("FOR")}</span> 
               <motion.span 
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 1, duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
                 style={{ transformOrigin: 'left' }}
-                className="bg-orange-500 text-white px-4 md:px-8 py-1 md:py-2 inline-block shadow-[0_0_40px_rgba(249,115,22,0.3)]"
+                className="bg-orange-500 text-white px-4 md:px-8 py-1 md:py-2 inline-block shadow-[0_0_40px_rgba(249,115,22,0.3)] polish-shine"
               >
                 <span className="block">{splitCharacters("LIFE.")}</span>
               </motion.span>

@@ -32,7 +32,7 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onConsultClick }) => {
         >
           Ready to shorten <br />
           <span className="text-gradient">the trajectory?</span>
-        </h2 >
+        </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}

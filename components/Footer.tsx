@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
 
           <div className="flex flex-wrap gap-x-12 gap-y-6 text-[11px] font-black uppercase tracking-[0.3em]">
             <Magnetic strength={0.2}>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">LinkedIn</a>
+              <a href="https://www.linkedin.com/company/360-consulting-solutions/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">LinkedIn</a>
             </Magnetic>
             <Magnetic strength={0.2}>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">Instagram</a>
