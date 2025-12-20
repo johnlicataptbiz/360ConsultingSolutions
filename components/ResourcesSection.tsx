@@ -110,31 +110,49 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({ onConsultClick }) =
                             
                             {guide.title === "The Scale Blueprint" ? (
                                 <div className="space-y-8">
-                                    <div className="flex flex-col gap-4">
-                                        <a 
-                                            href="https://gumroad.com" 
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-[#FF7A3D] group-hover:text-white transition-colors"
-                                        >
-                                            Get Access <ArrowRight size={18} />
-                                        </a>
-                                        <p className="text-[9px] text-white/20 font-bold uppercase tracking-[0.2em]">
-                                            * License-protected access
+                                    <div className="flex flex-col gap-6">
+                                        <div className="flex flex-wrap gap-4">
+                                            <a 
+                                                href="https://jlicata.gumroad.com/l/scale-blueprint" 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="px-6 py-3 rounded-full bg-[#FF7A3D] text-white text-[10px] font-black uppercase tracking-[0.2em] hover:bg-[#FF8B57] transition-all flex items-center gap-2"
+                                            >
+                                                Purchase Access <ArrowRight size={14} />
+                                            </a>
+                                            <a 
+                                                href="https://workbook.360consulting.com" 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="px-6 py-3 rounded-full border border-white/10 text-white text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white/5 transition-all flex items-center gap-2 text-gradient"
+                                            >
+                                                Launch Workbook <Zap size={14} />
+                                            </a>
+                                        </div>
+                                        <p className="text-[9px] text-white/40 font-bold uppercase tracking-[0.2em] flex items-center gap-2">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-[#FF7A3D] animate-pulse" />
+                                            License-protected access required
                                         </p>
                                     </div>
                                     
-                                    <div className="pt-8 border-t border-white/5">
-                                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-6">How it works</p>
-                                        <div className="grid grid-cols-1 gap-4">
+                                    <div className="pt-8 border-t border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent -mx-12 px-12 pb-8">
+                                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-6 flex items-center gap-4">
+                                            <span className="h-[1px] flex-1 bg-white/5"></span>
+                                            Execution Protocol
+                                            <span className="h-[1px] flex-1 bg-white/5"></span>
+                                        </p>
+                                        <div className="grid grid-cols-1 gap-6">
                                             {[
-                                                { step: "01", text: "Download Guide (Optional)" },
-                                                { step: "02", text: "Run the Workbook" },
-                                                { step: "03", text: "Book a Results Debrief" }
+                                                { step: "01", title: "Download", text: "Get the strategic PDF blueprint (Optional)" },
+                                                { step: "02", title: "Execute", text: "Run the interactive workbook" },
+                                                { step: "03", title: "Debrief", text: "Book your 1:1 results session" }
                                             ].map((item, i) => (
-                                                <div key={i} className="flex items-center gap-4">
-                                                    <span className="text-[10px] font-black text-[#FF7A3D]">{item.step}</span>
-                                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">{item.text}</span>
+                                                <div key={i} className="flex gap-4 group/step">
+                                                    <span className="text-[10px] font-black text-[#FF7A3D] opacity-40 group-hover/step:opacity-100 transition-opacity">{item.step}</span>
+                                                    <div>
+                                                        <p className="text-[10px] font-black text-white uppercase tracking-widest mb-1">{item.title}</p>
+                                                        <p className="text-xs text-gray-500 font-medium">{item.text}</p>
+                                                    </div>
                                                 </div>
                                             ))}
                                         </div>

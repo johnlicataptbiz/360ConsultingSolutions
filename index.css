@@ -185,6 +185,15 @@
   .modal-content {
     max-height: calc(90vh - 2rem);
   }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
 }
 
 @keyframes glimmer-wave {
