@@ -39,10 +39,10 @@ const Footer: React.FC = () => {
 
         <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between gap-4">
           <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">
-            © 2025 Jack Licata Design Co
-          </p>
-          <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest polish-shine">
             Designed for legacy by Jack Licata Design Co
+          </p>
+          <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">
+            © 2025 Jack Licata Design Co
           </p>
         </div>
       </div>
