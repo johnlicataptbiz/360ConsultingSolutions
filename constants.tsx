@@ -102,26 +102,50 @@ export const PARTNERS: PartnerLogo[] = [
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 1,
-    title: 'The Art of Executive Focus',
-    excerpt: 'How to manage 50+ hours while building a legacy.',
-    date: 'Dec 12, 2025',
-    tag: 'Leadership',
-    image: 'https://picsum.photos/seed/blog1/400/250'
+    title: 'How to Scale to $100M+',
+    excerpt: 'The jump to nine figures isn\'t about working harder. It\'s about removing yourself as the constraint.',
+    date: 'Dec 15, 2025',
+    tag: 'Business',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: 2,
-    title: 'Strategic Partnerships 101',
-    excerpt: 'Why alignment matters more than exposure.',
-    date: 'Dec 05, 2025',
-    tag: 'Business',
-    image: 'https://picsum.photos/seed/blog2/400/250'
+    title: 'The Role of Executive Presence',
+    excerpt: 'Talent opens doors. Executive presence decides how far you walk through them.',
+    date: 'Dec 08, 2025',
+    tag: 'Leadership',
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: 3,
-    title: 'Beyond the Footwear Industry',
-    excerpt: 'Applying 30 years of retail logic to life coaching.',
-    date: 'Nov 28, 2025',
+    title: 'The John Licata Balance',
+    excerpt: 'Success that costs you your family is deferred regret. Learn the integration framework.',
+    date: 'Dec 01, 2025',
     tag: 'Personal',
-    image: 'https://picsum.photos/seed/blog3/400/250'
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop'
+  },
+  {
+    id: 4,
+    title: 'Revenue Growth Hacks',
+    excerpt: 'Growth hides in fundamentals: pricing clarity, positioning, and retention.',
+    date: 'Nov 24, 2025',
+    tag: 'Business',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop'
+  },
+  {
+    id: 5,
+    title: 'The Art of Executive Focus',
+    excerpt: 'Manage 50+ hour weeks effectively through strategic elimination and impact mapping.',
+    date: 'Nov 17, 2025',
+    tag: 'Leadership',
+    image: 'https://images.unsplash.com/photo-1454165833767-027ffea70250?q=80&w=800&auto=format&fit=crop'
+  },
+  {
+    id: 6,
+    title: 'Legacy Logic',
+    excerpt: 'Building a lasting impact through the integration of family and career values.',
+    date: 'Nov 10, 2025',
+    tag: 'Personal',
+    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop'
   }
 ];
