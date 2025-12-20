@@ -225,12 +225,14 @@ async function createHubSpotBooking({ firstName, lastName, email, timezone, dura
 
 async function serveStatic(req, res, pathname) {
   const cleanPath = pathname === '/' ? '/index.html' : pathname;
-  const filePath = path.join(DIST_DIR, cleanPath);
+  const relativePath = cleanPath.replace(/^\/+/, '');
+  const safePath = path.normalize(relativePath).replace(/^(\.\.(\/|\\|$))+/, '');
+  const filePath = path.join(DIST_DIR, safePath);
 
   try {
     const stat = await fs.stat(filePath);
     if (stat.isDirectory()) {
-      return serveStatic(req, res, path.join(cleanPath, 'index.html'));
+      return serveStatic(req, res, path.posix.join(cleanPath, 'index.html'));
     }
     const data = await fs.readFile(filePath);
     send(res, 200, { 'content-type': getMimeType(filePath) }, data);
@@ -307,4 +309,3 @@ const port = Number(process.env.PORT || 3000);
 server.listen(port, '0.0.0.0', () => {
   console.log(`Server listening on http://0.0.0.0:${port}`);
 });
-
