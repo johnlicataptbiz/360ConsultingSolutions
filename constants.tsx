@@ -96,6 +96,10 @@ export const PARTNERS: PartnerLogo[] = [
   {
     name: 'Finish Line',
     url: '/images/logo-finishline-new.png'
+  },
+  {
+    name: 'Shopify',
+    url: '/images/logo-shopify.png'
   }
 ];
 
@@ -106,7 +110,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: 'The jump to nine figures isn\'t about working harder. It\'s about removing yourself as the constraint.',
     date: 'Dec 15, 2025',
     tag: 'Business',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop'
+    image: '/images/john-conference-room.jpg'
   },
   {
     id: 2,
@@ -114,23 +118,23 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: 'Talent opens doors. Executive presence decides how far you walk through them.',
     date: 'Dec 08, 2025',
     tag: 'Leadership',
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop'
+    image: '/images/john-suit.jpg'
   },
   {
     id: 3,
-    title: 'The John Licata Balance',
+    title: 'Winning Without Losing',
     excerpt: 'Success that costs you your family is deferred regret. Learn the integration framework.',
     date: 'Dec 01, 2025',
     tag: 'Personal',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop'
+    image: '/images/john-beach.jpg'
   },
   {
     id: 4,
-    title: 'Revenue Growth Hacks',
+    title: 'Revenue Growth Fundamentals',
     excerpt: 'Growth hides in fundamentals: pricing clarity, positioning, and retention.',
     date: 'Nov 24, 2025',
     tag: 'Business',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop'
+    image: '/images/john-final.png'
   },
   {
     id: 5,
@@ -138,14 +142,14 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: 'Manage 50+ hour weeks effectively through strategic elimination and impact mapping.',
     date: 'Nov 17, 2025',
     tag: 'Leadership',
-    image: 'https://images.unsplash.com/photo-1454165833767-027ffea70250?q=80&w=800&auto=format&fit=crop'
+    image: '/images/john-office-premium.jpg'
   },
   {
     id: 6,
-    title: 'Legacy Logic',
+    title: 'Legacy Building Logic',
     excerpt: 'Building a lasting impact through the integration of family and career values.',
     date: 'Nov 10, 2025',
     tag: 'Personal',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop'
+    image: '/images/john-family-final.jpg'
   }
 ];
