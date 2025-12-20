@@ -96,7 +96,7 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
           <source src="https://assets.mixkit.co/videos/preview/mixkit-business-partners-working-together-in-office-43394-large.mp4" type="video/mp4" />
         </video>
         {/* Animated Glow Overlay */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[100vh] bg-orange-500/5 blur-[120px] rounded-full animate-float opacity-50 z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[100vh] bg-[#FF7A3D]/5 blur-[120px] rounded-full animate-float opacity-50 z-0" />
       </div>
 
       <div className="relative z-20 w-full px-6 max-w-[1400px] mx-auto pt-20 lg:pt-24">
@@ -107,7 +107,7 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-orange-500 text-[10px] md:text-sm font-black tracking-[0.6em] uppercase mb-8 block"
+              className="text-[#FF7A3D] text-[10px] md:text-sm font-black tracking-[0.6em] uppercase mb-8 block"
             >
               Executive Logic. Personal Legacy.
             </motion.span>
@@ -128,7 +128,7 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 1, duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
                   style={{ transformOrigin: 'left' }}
-                  className="bg-orange-500 text-white px-6 py-2 inline-block shadow-[0_0_60px_rgba(249,115,22,0.4)] polish-shine"
+                  className="bg-[#FF7A3D] text-white px-6 py-2 inline-block shadow-[0_0_60px_rgba(255,92,0,0.4)] polish-shine"
                 >
                   <span className="block">{splitCharacters("LIFE.")}</span>
                 </motion.span>
@@ -158,11 +158,11 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
                 </CTAButton>
 
                 <a
-                  href="#process"
+                  href="#ai-strategist"
                   aria-label="Read our business roadmap"
                   className="text-xs font-black uppercase tracking-[0.4em] text-gray-400 hover:text-white transition-colors flex items-center gap-3 group"
                 >
-                  View Roadmap <span className="text-orange-500 text-lg group-hover:translate-x-1 transition-transform">→</span>
+                  View Roadmap <span className="text-[#FF7A3D] text-lg group-hover:translate-x-1 transition-transform inline-flex items-center">→</span>
                 </a>
               </motion.div>
             </div>
@@ -187,16 +187,16 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
               <motion.div
                 animate={{ y: [0, -20, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-6 -right-6 w-24 h-24 bg-orange-500/10 blur-3xl rounded-full"
+                className="absolute -top-6 -right-6 w-24 h-24 bg-[#FF7A3D]/10 blur-3xl rounded-full"
               />
               <div className="absolute bottom-10 left-10 text-left">
                 <p className="text-white font-heading font-black text-3xl tracking-tighter uppercase leading-none mb-2">John Licata</p>
-                <p className="text-orange-500 font-black text-[10px] tracking-[0.4em] uppercase block">Principal & Founder</p>
+                <p className="text-[#FF7A3D] font-black text-[10px] tracking-[0.4em] uppercase block">Principal & Founder</p>
               </div>
             </div>
 
             {/* Background Accent */}
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-orange-500/5 blur-[100px] rounded-full" />
+            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#FF7A3D]/5 blur-[100px] rounded-full" />
           </motion.div>
         </div>
       </div>

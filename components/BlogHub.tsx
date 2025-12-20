@@ -21,17 +21,17 @@ const BlogHub: React.FC<BlogHubProps> = ({ onConsultClick }) => {
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-orange-500 text-[10px] font-black tracking-[0.5em] uppercase mb-4 block"
+              className="text-[#FF7A3D] text-[10px] font-black tracking-[0.5em] uppercase mb-4 block"
             >
               Resources
             </motion.span>
             <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase font-heading leading-none">
-              Strategic <br /> <span className="text-white/30">Insights.</span>
+              Strategic <br /> <span className="text-gradient">Insights.</span>
             </h2>
           </div>
           <div className="flex flex-wrap gap-3">
             {['All', 'Business', 'Leadership', 'Personal'].map((tag) => (
-              <button key={tag} className="px-6 py-2 rounded-full border border-white/10 text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+              <button key={tag} aria-label={`Filter by ${tag}`} className="px-6 py-2 rounded-full border border-white/10 text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">
                 {tag}
               </button>
             ))}
@@ -46,7 +46,7 @@ const BlogHub: React.FC<BlogHubProps> = ({ onConsultClick }) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="group cursor-pointer flex flex-col h-full"
+              className="group flex flex-col h-full"
             >
               <div className="relative overflow-hidden rounded-[2.5rem] mb-8 aspect-[16/10] bg-gray-900">
                 <img
@@ -62,10 +62,10 @@ const BlogHub: React.FC<BlogHubProps> = ({ onConsultClick }) => {
               </div>
 
               <div className="flex flex-col flex-1 px-2">
-                <span className="text-orange-500 text-[10px] font-black tracking-widest uppercase mb-4">
+                <span className="text-[#FF7A3D] text-[10px] font-black tracking-widest uppercase mb-4">
                   {post.date}
                 </span>
-                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter leading-tight mb-4 font-heading group-hover:text-orange-500 transition-colors">
+                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter leading-tight mb-4 font-heading group-hover:text-[#FF7A3D] transition-colors">
                   {post.title}
                 </h3>
                 <p className="text-gray-400 text-lg font-light line-clamp-2 leading-relaxed mb-8">
@@ -73,7 +73,7 @@ const BlogHub: React.FC<BlogHubProps> = ({ onConsultClick }) => {
                 </p>
                 <div className="mt-auto">
                   <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white flex items-center gap-2 group-hover:gap-4 transition-all">
-                    Read Article <span className="text-orange-500">→</span>
+                    Read Article <span className="text-[#FF7A3D]">→</span>
                   </span>
                 </div>
               </div>

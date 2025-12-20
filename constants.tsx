@@ -5,6 +5,7 @@ import { BarChart3, Briefcase, Compass, Calendar, Search, Zap } from 'lucide-rea
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'What We Do', href: '#what-we-do' },
+  { label: 'AI Strategist', href: '#ai-strategist', isNew: true },
   { label: 'Partnerships', href: '#partnerships' },
   { label: 'About 360', href: '#about' },
   { label: 'Resources', href: '#resources' },
@@ -26,7 +27,7 @@ export const SERVICES: ServiceItem[] = [
     description: 'Level up your professional journey with actionable pathfinding.',
     details: ['Executive Presence', 'Career Trajectory Analysis', 'Hiring Skills'],
     icon: <Briefcase size={32} />,
-    color: 'from-orange-500/20 to-orange-600/20'
+    color: 'from-#FF7A3D/20 to-#FF5C00/20'
   },
   {
     id: 'life',

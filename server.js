@@ -2,6 +2,7 @@ import http from 'node:http';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, 'dist');
@@ -257,6 +258,46 @@ async function serveStatic(req, res, pathname) {
   }
 }
 
+async function generateAIStrategy(userInput) {
+  const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
+  if (!apiKey || apiKey === 'INSERT_YOUR_API_KEY_HERE') {
+    throw new Error('AI Module Offline: API Configuration Required on Server.');
+  }
+
+  const genAI = new GoogleGenerativeAI(apiKey);
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+
+  const prompt = `
+    You are John Licata, Principal of 360 Consulting Solutions. You have 30 years of experience in retail, footwear (launching 16 brands), and managing massive topline revenues. Your philosophy is "Winning at work without losing at home." You value High-Stakes Logic and Legacy.
+
+    The user is seeking your expert advice on: "${userInput}"
+
+    Analyze the challenge through three lenses:
+    1. STRATEGIC OVERSIGHT: High-level growth logic.
+    2. OPERATIONAL FIX: Direct action for efficiency.
+    3. LEGACY BLUEPRINT: Personal balance and long-term impact.
+
+    Provide a response in exactly this JSON format:
+    {
+      "strategy": "Your strategic advice...",
+      "operations": "Your operational advice...",
+      "legacy": "Your legacy advice..."
+    }
+    
+    Rules:
+    - Be direct, elite, and slightly provocative.
+    - Avoid generic corporate speak.
+    - Maximum 3 sentences per field.
+    - Use "I" (as in "I suggest..." or "In my experience...") to maintain the persona.
+  `;
+
+  const result = await model.generateContent(prompt);
+  const response = await result.response;
+  const text = response.text();
+  const cleaned = text.replace(/```json/g, "").replace(/```/g, "").trim();
+  return JSON.parse(cleaned);
+}
+
 const server = http.createServer(async (req, res) => {
   try {
     if (!req.url) return sendJson(req, res, 400, { error: 'Missing URL' });
@@ -269,7 +310,7 @@ const server = http.createServer(async (req, res) => {
     const pathname = url.pathname;
 
     if (pathname === '/health') {
-      return sendJson(req, res, 200, { ok: true });
+      return sendJson(req, res, 200, { ok: true, agent: 'antigravity-v1' });
     }
 
     if (pathname === '/api/hubspot/oro/availability/MonthInfo') {
@@ -301,6 +342,23 @@ const server = http.createServer(async (req, res) => {
 
       const booking = await createHubSpotBooking({ firstName, lastName, email, timezone, duration, startTime });
       return sendJson(req, res, 200, booking);
+    }
+
+    if (pathname === '/api/ai/strategist') {
+      if (req.method !== 'POST') return sendJson(req, res, 405, { error: 'Method not allowed' });
+      const payload = (await readJsonBody(req)) || {};
+      const userInput = String(payload.input || '').trim();
+      const userEmail = String(payload.email || '').trim();
+      if (!userInput) return sendJson(req, res, 400, { error: 'Missing input' });
+
+      // Log lead capture (email is captured before AI generation)
+      if (userEmail) {
+        console.log(`[LEAD] AI Strategist request from: ${userEmail}`);
+        // TODO: Send to HubSpot/CRM here
+      }
+
+      const analysis = await generateAIStrategy(userInput);
+      return sendJson(req, res, 200, analysis);
     }
 
     const served = await serveStatic(req, res, pathname);

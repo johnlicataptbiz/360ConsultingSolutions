@@ -36,6 +36,9 @@ const ConsultModal: React.FC<ConsultModalProps> = ({ onClose, selectedService })
         initial={{ opacity: 0, scale: 0.95, y: 40 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 40 }}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="consult-modal-heading"
         className="relative z-10 w-full max-w-5xl bg-[#0a0a0f] rounded-[2rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.8)] border border-white/5 flex flex-col h-[90vh]"
       >
         <button
@@ -47,10 +50,10 @@ const ConsultModal: React.FC<ConsultModalProps> = ({ onClose, selectedService })
         </button>
 
         <div className="relative z-50 pt-10 pb-6 px-6 text-center border-b border-white/[0.03] bg-[#0a0a0f]">
-          <p className="text-[10px] font-black tracking-[0.4em] text-orange-500 uppercase mb-2">
+          <p className="text-[10px] font-black tracking-[0.4em] text-[#FF7A3D] uppercase mb-2">
             Schedule Your Session
           </p>
-          <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-2 font-heading">
+          <h2 id="consult-modal-heading" className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-2 font-heading">
             Select a Date & Time
           </h2>
           <p className="text-[9px] text-white/40 font-bold uppercase tracking-[0.3em]">

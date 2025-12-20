@@ -9,7 +9,7 @@ interface FinalCTAProps {
 
 const FinalCTA: React.FC<FinalCTAProps> = ({ onConsultClick }) => {
   return (
-    <section className="relative h-screen min-h-[700px] w-full flex items-center overflow-hidden bg-gray-950">
+    <section aria-labelledby="final-cta-heading" className="relative h-screen min-h-[700px] w-full flex items-center overflow-hidden bg-gray-950">
       {/* Background Image / John */}
       <div className="absolute inset-0 z-0">
         {/* Feathering Gradients */}
@@ -36,13 +36,13 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onConsultClick }) => {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            <span className="text-orange-500 text-[10px] md:text-sm font-black tracking-[0.6em] uppercase mb-8 block">
+            <span className="text-[#FF7A3D] text-[10px] md:text-sm font-black tracking-[0.6em] uppercase mb-8 block">
               Your next chapter starts here
             </span>
 
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tighter uppercase font-heading mb-8">
+            <h2 id="final-cta-heading" className="text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tighter uppercase font-heading mb-8">
               Ready to <span className="text-white">Shorten</span> <br />
-              <span className="text-orange-500">Your Trajectory?</span>
+              <span className="text-[#FF7A3D]">Your Trajectory?</span>
             </h2>
 
             <p className="text-lg md:text-2xl text-gray-300 font-light leading-relaxed mb-12 max-w-xl ml-auto">

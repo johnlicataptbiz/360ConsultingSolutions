@@ -24,7 +24,7 @@ const MarqueePartners: React.FC = () => {
           transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
         >
           {[...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, idx) => (
-            <div key={`${partner.name}-${idx}`} className="flex items-center gap-6 group shrink-0 cursor-pointer">
+            <div key={`${partner.name}-${idx}`} className="flex items-center gap-6 group shrink-0 cursor-pointer" aria-hidden={idx >= PARTNERS.length ? 'true' : undefined}>
               <div className="h-16 md:h-20 px-8 py-3 bg-white/95 rounded-2xl shadow-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-500">
                 <img
                   src={partner.url}
@@ -35,7 +35,7 @@ const MarqueePartners: React.FC = () => {
                     }`}
                 />
               </div>
-              <span className="text-[10px] md:text-[12px] font-black tracking-[0.4em] text-gray-500 group-hover:text-orange-500 transition-colors duration-500 uppercase font-heading">
+              <span className="text-[10px] md:text-[12px] font-black tracking-[0.4em] text-gray-500 group-hover:text-[#FF7A3D] transition-colors duration-500 uppercase font-heading">
                 {partner.name}
               </span>
             </div>

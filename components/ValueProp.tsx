@@ -13,14 +13,15 @@ const ValueProp: React.FC = () => {
   const words = text.split(" ");
 
   return (
-    <section ref={containerRef} className="py-40 px-6 bg-gray-950 relative overflow-hidden">
+    <section ref={containerRef} aria-labelledby="value-prop-heading" className="py-24 px-6 bg-gray-950 relative overflow-hidden">
       {/* Feathering Gradients */}
       <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-gray-950 to-transparent z-10 pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-gray-950 to-transparent z-10 pointer-events-none" />
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FF7A3D]/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-6xl mx-auto">
+        <h2 id="value-prop-heading" className="sr-only">Our Core Values</h2>
         <div className="flex flex-wrap justify-center gap-x-3 gap-y-4">
           {words.map((word, i) => {
             const start = i / words.length;

@@ -22,7 +22,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({ onClick, children, className = ""
         <span className="relative z-10 group-hover:text-white transition-colors duration-300">
           {children}
         </span>
-        <div className="absolute inset-0 bg-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+        <div className="absolute inset-0 bg-[#FF7A3D] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
       </motion.button>
     </Magnetic>
   );
