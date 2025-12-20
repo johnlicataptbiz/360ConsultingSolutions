@@ -147,10 +147,10 @@ async function fetchHubSpotBookInfo({ now, timezone, location }) {
   if (!response.ok) {
     throw new Error(`HubSpot availability fetch failed (${response.status}): ${text}`);
   }
-  return JSON.parse(text);
+  return { data: JSON.parse(text), requestParams: Object.fromEntries(params.entries()) };
 }
 
-async function fetchMonthInfo({ month, timezone, location }) {
+async function fetchMonthInfo({ month, timezone, location, debug }) {
   const [yearStr, monthStr] = month.split('-');
   const year = Number(yearStr);
   const monthIndex = Number(monthStr) - 1;
@@ -162,7 +162,7 @@ async function fetchMonthInfo({ month, timezone, location }) {
   const now = Date.UTC(year, monthIndex, 1, 12, 0, 0, 0);
   const bookInfo = await fetchHubSpotBookInfo({ now, timezone, location });
 
-  const byDuration = bookInfo?.linkAvailability?.linkAvailabilityByDuration || {};
+  const byDuration = bookInfo?.data?.linkAvailability?.linkAvailabilityByDuration || {};
   const durations = Object.keys(byDuration)
     .map((d) => Number(d))
     .filter((d) => Number.isFinite(d))
@@ -198,7 +198,12 @@ async function fetchMonthInfo({ month, timezone, location }) {
       slots: slots.sort((a, b) => a.start.localeCompare(b.start)),
     }));
 
-  return { days, durationMs };
+  const result = { days, durationMs };
+  if (debug) {
+    // eslint-disable-next-line no-underscore-dangle
+    result._debugRequestParams = bookInfo.requestParams;
+  }
+  return result;
 }
 
 async function createHubSpotBooking({ firstName, lastName, email, timezone, duration, startTime }) {
@@ -270,8 +275,9 @@ const server = http.createServer(async (req, res) => {
       if (req.method !== 'GET') return sendJson(req, res, 405, { error: 'Method not allowed' });
       const month = url.searchParams.get('month') || '';
       const timezone = url.searchParams.get('timezone') || 'UTC';
+      const debug = url.searchParams.get('debug') === '1';
       const location = getLocationFromRequest(req);
-      const monthInfo = await fetchMonthInfo({ month, timezone, location });
+      const monthInfo = await fetchMonthInfo({ month, timezone, location, debug });
       return sendJson(req, res, 200, monthInfo);
     }
 
