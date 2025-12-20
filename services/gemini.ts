@@ -1,7 +1,9 @@
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY || '');
+const apiKey =
+  import.meta.env.VITE_GEMINI_API_KEY || (process.env.GEMINI_API_KEY as string | undefined) || '';
+const genAI = new GoogleGenerativeAI(apiKey);
 
 export const getBusinessAnalysis = async (challenge: string) => {
     // Using gemini-1.5-flash-002 as a more specific stable version

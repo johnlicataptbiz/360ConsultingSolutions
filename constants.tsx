@@ -42,7 +42,7 @@ export const STEPS: Step[] = [
   {
     number: 1,
     title: 'Consult',
-    description: 'Schedule your complimentary 30 minute consult.',
+    description: 'Schedule your complimentary 45 minute consult.',
     icon: <Calendar size={24} />
   },
   {

@@ -38,7 +38,8 @@ const AIStrategist: React.FC<AIStrategistProps> = ({ onConsultClick }) => {
     setResult(null);
     setIsGated(false);
 
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY || "";
+    const apiKey =
+      import.meta.env.VITE_GEMINI_API_KEY || (process.env.GEMINI_API_KEY as string | undefined) || "";
     
     if (!apiKey || apiKey === "INSERT_YOUR_API_KEY_HERE") {
       setError("AI Module Offline: API Configuration Required.");

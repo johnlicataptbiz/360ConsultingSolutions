@@ -1,4 +1,6 @@
 
+import type { ReactNode } from 'react';
+
 export interface AnalysisResult {
   strategy: string;
   operations: string;
@@ -21,7 +23,7 @@ export interface ServiceItem {
   title: string;
   description: string;
   details: string[];
-  icon: React.ReactNode;
+  icon: ReactNode;
   color: string;
 }
 
@@ -43,5 +45,5 @@ export interface Step {
   number: number;
   title: string;
   description: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
 }

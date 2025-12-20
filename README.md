@@ -10,6 +10,10 @@ Live site: https://360-consulting-solutions-johnlicata.surge.sh/
 
 View your app in AI Studio: https://ai.studio/apps/drive/1GjnRU8foOA7gWelBpzrkz3xeek8patT0
 
+## Calendar UI
+
+The scheduling modal is implemented in `components/ConsultModal.tsx` and uses the HubSpot Meetings embed. The “custom calendar” look is achieved with overlays and iframe styling in that component.
+
 ## Run Locally
 
 **Prerequisites:**  Node.js
@@ -17,7 +21,7 @@ View your app in AI Studio: https://ai.studio/apps/drive/1GjnRU8foOA7gWelBpzrkz3
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+2. Set the `GEMINI_API_KEY` (or `VITE_GEMINI_API_KEY`) in `.env.local` to your Gemini API key
 3. Run the app:
    `npm run dev`
 
@@ -25,3 +29,12 @@ View your app in AI Studio: https://ai.studio/apps/drive/1GjnRU8foOA7gWelBpzrkz3
 
 1. Build and deploy:
    `npm run deploy`
+
+## Deploy (Railway)
+
+1. Set these Railway variables (Project → Variables):
+   - `GEMINI_API_KEY` (or `VITE_GEMINI_API_KEY`)
+   - Optional: `HUBSPOT_MEETING_URL` (or `VITE_HUBSPOT_MEETING_URL`) to override the meeting link
+2. Use:
+   - Build command: `npm run build`
+   - Start command: `npm start`
