@@ -158,8 +158,9 @@ async function fetchMonthInfo({ month, timezone, location, debug }) {
     throw new Error('Invalid month format. Expected YYYY-MM.');
   }
 
-  // Midday UTC reduces edge cases around DST transitions.
-  const now = Date.UTC(year, monthIndex, 1, 12, 0, 0, 0);
+  // HubSpot computes availability relative to "now" (and the meeting's rolling window),
+  // so anchor on real current time to match the HubSpot booking page.
+  const now = Date.now();
   const bookInfo = await fetchHubSpotBookInfo({ now, timezone, location });
 
   const byDuration = bookInfo?.data?.linkAvailability?.linkAvailabilityByDuration || {};
