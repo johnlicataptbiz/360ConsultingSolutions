@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, FileText, ArrowRight, Sparkles } from 'lucide-react';
+import { BookOpen, FileText, ArrowRight, Sparkles, Zap } from 'lucide-react';
 
 interface ResourcesSectionProps {
     onConsultClick: () => void;
@@ -20,6 +20,18 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({ onConsultClick }) =
             type: "Checklist",
             description: "Identify hidden bottlenecks in your current workflows with this 50-point framework.",
             icon: <FileText className="text-[#FF7A3D]" size={24} />
+        },
+        {
+            title: "Supply Chain Logic",
+            type: "Handbook",
+            description: "Decades of retail experience condensed into high-velocity supply chain strategies.",
+            icon: <Zap className="text-[#FF7A3D]" size={24} />
+        },
+        {
+            title: "Bottleneck Buster",
+            type: "Framework",
+            description: "A surgical method for identifying and removing constraints in execution speed.",
+            icon: <ArrowRight className="text-[#FF7A3D]" size={24} />
         }
     ];
 
