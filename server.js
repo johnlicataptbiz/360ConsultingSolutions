@@ -19,11 +19,26 @@ function parseSlug(meetingUrl) {
   }
 }
 
+function parseHost(meetingUrl) {
+  if (!meetingUrl) return null;
+  try {
+    return new URL(meetingUrl).host || null;
+  } catch {
+    return null;
+  }
+}
+
 const HUBSPOT_MEETING_SLUG =
   process.env.HUBSPOT_MEETING_SLUG ||
   parseSlug(process.env.HUBSPOT_MEETING_URL) ||
   parseSlug(process.env.VITE_HUBSPOT_MEETING_URL) ||
   'john2490';
+
+const HUBSPOT_MEETINGS_HOST =
+  process.env.HUBSPOT_MEETINGS_HOST ||
+  parseHost(process.env.HUBSPOT_MEETING_URL) ||
+  parseHost(process.env.VITE_HUBSPOT_MEETING_URL) ||
+  'meetings.hubspot.com';
 
 const pad2 = (n) => String(n).padStart(2, '0');
 
@@ -113,15 +128,9 @@ function getMimeType(filePath) {
 }
 
 function getLocationFromRequest(req) {
-  const origin = req.headers.origin;
-  if (origin) {
-    try {
-      return new URL(origin).host;
-    } catch {
-      // ignore
-    }
-  }
-  return req.headers['x-forwarded-host'] || req.headers.host || 'meetings.hubspot.com';
+  // HubSpot validates `location` against domains configured on the meeting link,
+  // so using the current site host can break availability/booking.
+  return HUBSPOT_MEETINGS_HOST;
 }
 
 async function fetchHubSpotBookInfo({ now, timezone, location }) {
