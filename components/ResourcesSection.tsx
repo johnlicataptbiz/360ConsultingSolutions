@@ -32,6 +32,18 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({ onConsultClick }) =
             type: "Framework",
             description: "A surgical method for identifying and removing constraints in execution speed.",
             icon: <ArrowRight className="text-[#FF7A3D]" size={24} />
+        },
+        {
+            title: "Executive Presence Guide",
+            type: "Playbook",
+            description: "Developing the clarity and composure that accelerate leadership credibility.",
+            icon: <Sparkles className="text-[#FF7A3D]" size={24} />
+        },
+        {
+            title: "Legacy Building Logic",
+            type: "E-Book",
+            description: "Building lasting professional impact without sacrificing personal relationships.",
+            icon: <BookOpen className="text-[#FF7A3D]" size={24} />
         }
     ];
 
