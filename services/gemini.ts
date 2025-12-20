@@ -3,11 +3,26 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const apiKey =
   import.meta.env.VITE_GEMINI_API_KEY || (process.env.GEMINI_API_KEY as string | undefined) || '';
-const genAI = new GoogleGenerativeAI(apiKey);
+
+let genAI: GoogleGenerativeAI | null = null;
+const getGenAI = () => {
+  if (!apiKey) return null;
+  if (!genAI) genAI = new GoogleGenerativeAI(apiKey);
+  return genAI;
+};
 
 export const getBusinessAnalysis = async (challenge: string) => {
+    const client = getGenAI();
+    if (!client) {
+        return {
+            strategy: "AI analysis is temporarily unavailable.",
+            operations: "Set `GEMINI_API_KEY` (or `VITE_GEMINI_API_KEY`) to enable analysis.",
+            growth: "Once enabled, you’ll get tailored growth recommendations.",
+            summary: "AI is offline until the API key is configured."
+        };
+    }
     // Using gemini-1.5-flash-002 as a more specific stable version
-    const model = genAI.getGenerativeModel({
+    const model = client.getGenerativeModel({
         model: "gemini-1.5-flash-002",
         systemInstruction: "You are a senior partner at 360 Consulting Solutions. Your tone is professional, direct, and insightful. You provide high-level strategic advice focused on holistic business health. Return your analysis in JSON format with strategy, operations, growth, and summary fields.",
     });
