@@ -17,7 +17,7 @@ View your app in AI Studio: https://ai.studio/apps/drive/1GjnRU8foOA7gWelBpzrkz3
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+2. Create `.env.local` (see `.env.example`) and set `GEMINI_API_KEY`
 3. Run the app:
    `npm run dev`
 
@@ -25,3 +25,9 @@ View your app in AI Studio: https://ai.studio/apps/drive/1GjnRU8foOA7gWelBpzrkz3
 
 1. Build and deploy:
    `npm run deploy`
+
+## HubSpot Calendar Proxy
+
+The custom booking UI in `components/CustomCalendar.tsx` fetches availability via a proxy service.
+
+- Configure `VITE_HUBSPOT_PROXY_BASE_URL` in `.env.local` if you need to point at a different Railway deployment.

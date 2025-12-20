@@ -20,8 +20,8 @@ type MonthInfoResponse = {
 };
 
 // --- Proxy Config ---
-// Using the endpoint discovered from network logs
-const PROXY_BASE_URL = "https://hubspot-proxy-production.up.railway.app";
+const DEFAULT_PROXY_BASE_URL = "https://hubspot-proxy-production.up.railway.app";
+const PROXY_BASE_URL = import.meta.env.VITE_HUBSPOT_PROXY_BASE_URL || DEFAULT_PROXY_BASE_URL;
 
 // --- Helper Functions ---
 const getDaysInMonth = (year: number, month: number) => new Date(year, month + 1, 0).getDate();
