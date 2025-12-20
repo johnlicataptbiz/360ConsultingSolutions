@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import Magnetic from './Magnetic';
 import CTAButton from './CTAButton';
@@ -9,6 +9,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
   const { scrollY } = useScroll();
   const yOffset = useTransform(scrollY, [0, 500], [0, -100]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
@@ -168,32 +169,87 @@ const Hero: React.FC<HeroProps> = ({ onConsultClick }) => {
             </div>
           </motion.div>
 
-          {/* Right Column: Hero Image */}
+          {/* Right Column: Hero Image Flip Card */}
           <motion.div
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:block relative"
+            className="hidden lg:block relative perspective-1000"
           >
-            <div className="relative aspect-[4/5] w-full max-w-md mx-auto overflow-hidden rounded-2xl border border-white/10 grayscale-[0.4] hover:grayscale-0 transition-all duration-700 shadow-2xl">
-              <img
-                src="/images/john-hero-final.png"
-                alt="John Licata"
-                className="w-full h-full object-cover scale-[1.05] hover:scale-100 transition-transform duration-700 blur-[0.2px]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60" />
+            <motion.div
+              className="relative aspect-[4/5] w-full max-w-md mx-auto cursor-pointer"
+              style={{ transformStyle: 'preserve-3d' }}
+              animate={{ rotateY: isFlipped ? 180 : 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              onClick={() => setIsFlipped(!isFlipped)}
+            >
+              {/* Front Side */}
+              <div className="absolute inset-0 w-full h-full backface-hidden">
+                <div className="relative w-full h-full overflow-hidden rounded-2xl border border-white/10 grayscale-[0.4] hover:grayscale-0 transition-all duration-700 shadow-2xl">
+                  <img
+                    src="/images/john-hero-final.png"
+                    alt="John Licata"
+                    className="w-full h-full object-cover scale-[1.05] hover:scale-100 transition-transform duration-700 blur-[0.2px]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60" />
+                  
+                  <div className="absolute bottom-10 left-10 text-left">
+                    <p className="text-white font-heading font-black text-3xl tracking-tighter uppercase leading-none mb-2">John Licata</p>
+                    <p className="text-[#FF7A3D] font-black text-[10px] tracking-[0.4em] uppercase block">Principal & Founder</p>
+                  </div>
 
-              {/* Floating Decorative Elements */}
-              <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-6 -right-6 w-24 h-24 bg-[#FF7A3D]/10 blur-3xl rounded-full"
-              />
-              <div className="absolute bottom-10 left-10 text-left">
-                <p className="text-white font-heading font-black text-3xl tracking-tighter uppercase leading-none mb-2">John Licata</p>
-                <p className="text-[#FF7A3D] font-black text-[10px] tracking-[0.4em] uppercase block">Principal & Founder</p>
+                  <motion.div 
+                    animate={{ opacity: isFlipped ? 0 : 1 }}
+                    className="absolute top-8 right-8 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full border border-white/10 flex items-center gap-2"
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#FF7A3D] animate-pulse" />
+                    <span className="text-[8px] font-black uppercase tracking-[0.2em] text-white/60">Tap to Flip</span>
+                  </motion.div>
+                </div>
               </div>
-            </div>
+
+              {/* Back Side */}
+              <div 
+                className="absolute inset-0 w-full h-full backface-hidden bg-gray-950 rounded-2xl border border-[#FF7A3D]/30 shadow-2xl p-10 flex flex-col justify-center gap-6"
+                style={{ transform: 'rotateY(180deg)' }}
+              >
+                <div className="space-y-2 text-left">
+                  <motion.span 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-[#FF7A3D] text-[10px] font-black tracking-[0.4em] uppercase block"
+                  >
+                    The Methodology
+                  </motion.span>
+                  <h3 className="text-3xl font-black text-white uppercase tracking-tighter leading-tight font-heading">
+                    SYSTEMATIC <br /> <span className="text-gradient">HARMONY.</span>
+                  </h3>
+                </div>
+
+                <div className="h-px w-12 bg-white/10" />
+
+                <p className="text-gray-400 font-light text-sm md:text-base leading-relaxed text-left">
+                  With over 30 years of retail logic and executive leadership, John has scaled 16 brands from zero to global market leaders. 
+                </p>
+                <p className="text-gray-400 font-light text-sm md:text-base leading-relaxed text-left">
+                  His coaching integrates operational precision with high-velocity personal growth, ensuring success at work never costs the foundation of home.
+                </p>
+
+                <div className="grid grid-cols-2 gap-4 pt-4">
+                  {[
+                    { label: "Scale Logic", val: "30Y" },
+                    { label: "Brands Led", val: "16" },
+                    { label: "Success Rate", val: "100%" },
+                    { label: "Primary Focus", val: "Legacy" }
+                  ].map((stat, i) => (
+                    <div key={i} className="flex flex-col gap-1 border-l border-white/5 pl-4 text-left">
+                      <span className="text-[#FF7A3D] font-black text-sm uppercase tracking-tighter">{stat.val}</span>
+                      <span className="text-[8px] font-black uppercase tracking-widest text-white/30">{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
 
             {/* Background Accent */}
             <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#FF7A3D]/5 blur-[100px] rounded-full" />
