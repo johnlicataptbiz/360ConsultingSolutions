@@ -86,7 +86,7 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({ onConsultClick }) =
                     </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-2 gap-8 mb-16">
                     {guides.map((guide, idx) => (
                         <motion.div
                             key={idx}
@@ -107,9 +107,44 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({ onConsultClick }) =
                             </div>
                             <h3 className="text-4xl font-black tracking-tighter uppercase font-heading mb-4 group-hover:text-[#FF7A3D] transition-colors">{guide.title}</h3>
                             <p className="text-gray-300 text-lg mb-10 leading-relaxed font-light group-hover:text-white transition-colors">{guide.description}</p>
-                            <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-[#FF7A3D]">
-                                Coming Soon <ArrowRight size={18} />
-                            </div>
+                            
+                            {guide.title === "The Scale Blueprint" ? (
+                                <div className="space-y-8">
+                                    <div className="flex flex-col gap-4">
+                                        <a 
+                                            href="https://gumroad.com" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-[#FF7A3D] group-hover:text-white transition-colors"
+                                        >
+                                            Get Access <ArrowRight size={18} />
+                                        </a>
+                                        <p className="text-[9px] text-white/20 font-bold uppercase tracking-[0.2em]">
+                                            * License-protected access
+                                        </p>
+                                    </div>
+                                    
+                                    <div className="pt-8 border-t border-white/5">
+                                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-6">How it works</p>
+                                        <div className="grid grid-cols-1 gap-4">
+                                            {[
+                                                { step: "01", text: "Download Guide (Optional)" },
+                                                { step: "02", text: "Run the Workbook" },
+                                                { step: "03", text: "Book a Results Debrief" }
+                                            ].map((item, i) => (
+                                                <div key={i} className="flex items-center gap-4">
+                                                    <span className="text-[10px] font-black text-[#FF7A3D]">{item.step}</span>
+                                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">{item.text}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-[#FF7A3D]">
+                                    Coming Soon <ArrowRight size={18} />
+                                </div>
+                            )}
                         </motion.div>
                     ))}
                 </div>
