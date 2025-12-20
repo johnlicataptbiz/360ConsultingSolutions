@@ -420,7 +420,7 @@ const AIStrategist: React.FC<AIStrategistProps> = ({ onConsultClick }) => {
                       />
                       <button 
                         type="submit"
-                        className="w-full py-5 bg-gradient-to-r from-#FF7A3D to-[#FF7A3D] text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] hover:from-white hover:to-white hover:text-black transition-all transform hover:scale-[1.02] shadow-[0_8px_32px_rgba(255,92,0,0.25)]"
+                        className="w-full py-5 bg-gradient-to-r from-[#FF7A3D] to-[#FF7A3D] text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] hover:from-white hover:to-white hover:text-black transition-all transform hover:scale-[1.02] shadow-[0_8px_32px_rgba(255,92,0,0.25)]"
                       >
                         Reveal Strategy →
                       </button>

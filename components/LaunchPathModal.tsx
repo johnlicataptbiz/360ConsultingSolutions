@@ -98,7 +98,7 @@ const LaunchPathModal: React.FC<LaunchPathModalProps> = ({ isOpen, onClose }) =>
               {/* Timeline Implementation */}
               <div className="relative">
                 {/* Central Vertical Line */}
-                <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-#FF7A3D/0 via-#FF7A3D/50 to-#FF7A3D/0 hidden lg:block" />
+                <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-[#FF7A3D]/0 via-[#FF7A3D]/50 to-[#FF7A3D]/0 hidden lg:block" />
 
                 <div className="space-y-24 lg:space-y-32">
                   {timelineData.map((item, idx) => (

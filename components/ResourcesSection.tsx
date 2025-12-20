@@ -49,7 +49,7 @@ const ResourcesSection: React.FC<ResourcesSectionProps> = ({ onConsultClick }) =
                     <div className="lg:w-1/3">
                         <motion.div
                             whileHover={{ scale: 1.02 }}
-                            className="p-10 rounded-[3rem] bg-gradient-to-br from-#FF7A3D/20 to-[#FF7A3D]/5 border border-[#FF7A3D]/30 backdrop-blur-xl relative group overflow-hidden cursor-pointer"
+                            className="p-10 rounded-[3rem] bg-gradient-to-br from-[#FF7A3D]/20 to-[#FF7A3D]/5 border border-[#FF7A3D]/30 backdrop-blur-xl relative group overflow-hidden cursor-pointer"
                             onClick={onConsultClick}
                         >
                             <div className="absolute top-0 right-0 p-6 opacity-20">

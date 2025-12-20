@@ -99,7 +99,7 @@ const BentoServices: React.FC<BentoServicesProps> = ({ onConsultClick, onLaunchP
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-[3.5rem] bg-gradient-to-b from-#FF7A3D/5 to-transparent border border-white/10 p-8 hover:border-[#FF7A3D]/40 transition-all duration-700 flex flex-col justify-between"
+            className="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-[3.5rem] bg-gradient-to-b from-[#FF7A3D]/5 to-transparent border border-white/10 p-8 hover:border-[#FF7A3D]/40 transition-all duration-700 flex flex-col justify-between"
           >
             <div className="relative z-10">
               <div className="p-4 bg-white/5 rounded-2xl border border-white/10 text-white mb-6 w-fit group-hover:bg-[#FF7A3D] group-hover:text-black transition-all">

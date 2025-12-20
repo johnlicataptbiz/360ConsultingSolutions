@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   return (
     <footer role="contentinfo" className="py-24 px-8 border-t border-white/5 bg-gray-950 relative overflow-hidden">
       {/* Decorative Glimmer */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-#FF7A3D/20 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-[#FF7A3D]/20 to-transparent" />
 
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">

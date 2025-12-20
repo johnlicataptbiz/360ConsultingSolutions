@@ -73,7 +73,7 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({ onConsultClick }) => {
             onSubmit={handleAnalyze}
             className="relative mb-16"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-#FF7A3D/20 to-blue-500/20 rounded-[2.5rem] blur opacity-75 group-focus-within:opacity-100 transition-opacity" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#FF7A3D]/20 to-blue-500/20 rounded-[2.5rem] blur opacity-75 group-focus-within:opacity-100 transition-opacity" />
             <div className="relative">
               <textarea
                 value={challenge}
@@ -84,7 +84,7 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({ onConsultClick }) => {
               <button
                 type="submit"
                 disabled={loading || !challenge.trim()}
-                className="absolute bottom-6 right-6 p-5 bg-gradient-to-br from-#FF7A3D to-[#FF7A3D] text-white rounded-2xl hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-#FF7A3D/20"
+                className="absolute bottom-6 right-6 p-5 bg-gradient-to-br from-[#FF7A3D] to-[#FF7A3D] text-white rounded-2xl hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#FF7A3D]/20"
               >
                 {loading ? <Loader2 className="animate-spin" size={24} /> : <Send size={24} />}
               </button>
@@ -139,7 +139,7 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({ onConsultClick }) => {
                   transition={{ delay: 0.4 }}
                   className="relative group mt-12"
                 >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-#FF7A3D to-blue-500 rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <div className="absolute -inset-1 bg-gradient-to-r from-[#FF7A3D] to-blue-500 rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition-opacity" />
                   <div className="relative p-12 bg-gray-900/80 border border-white/10 rounded-[3rem] backdrop-blur-2xl">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
                       <div className="max-w-xl">

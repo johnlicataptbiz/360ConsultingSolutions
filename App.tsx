@@ -46,7 +46,7 @@ const App: React.FC = () => {
   const closeLaunchPath = () => setIsLaunchPathOpen(false);
 
   return (
-    <div className="relative min-h-screen bg-gray-950 text-white selection:bg-#FF7A3D selection:text-white">
+    <div className="relative min-h-screen bg-gray-950 text-white selection:bg-[#FF7A3D] selection:text-white">
       <motion.div className="progress-bar" style={{ scaleX }} />
       
       {/* Content Wrapper that scales while modal is open */}

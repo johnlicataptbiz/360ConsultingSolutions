@@ -27,7 +27,7 @@ export const SERVICES: ServiceItem[] = [
     description: 'Level up your professional journey with actionable pathfinding.',
     details: ['Executive Presence', 'Career Trajectory Analysis', 'Hiring Skills'],
     icon: <Briefcase size={32} />,
-    color: 'from-#FF7A3D/20 to-#FF5C00/20'
+    color: 'from-[#FF7A3D]/20 to-[#FF5C00]/20'
   },
   {
     id: 'life',
